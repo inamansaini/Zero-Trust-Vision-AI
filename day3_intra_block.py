@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import random
+import os
 
 def generate_chaotic_key(x0, r, size):
     key = np.zeros(size)
@@ -11,8 +13,8 @@ def generate_chaotic_key(x0, r, size):
         key[i]=x
     return key
 
-img = cv2.imread('data/image.jpg', cv2.IMREAD_GRAYSCALE)
-B=8
+img = cv2.imread(f"data/{random.choice(os.listdir('data'))}", 0)
+B=128
 h= (img.shape[0]//B)*B
 w= (img.shape[1]//B)*B
 

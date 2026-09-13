@@ -1,5 +1,6 @@
 #This script slices the image into a grid of blocks and shuffles them based on your Logistic Map key
-
+import random
+import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,9 +13,9 @@ def generate_chaotic_key(x0, r, size):
         key[i]=x
     return key
 
-img = cv2.imread('data/image.jpg', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread(f"data/{random.choice(os.listdir('data'))}", 0)
 # 1. Load image and set block size (B x B)
-B=16# Standard block size for learnable encryption
+B=256# Standard block size for learnable encryption
 
 h,w = (img.shape[0]//B)*B, (img.shape[1]//B)*B
 img=cv2.resize(img, (w,h))

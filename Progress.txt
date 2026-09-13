@@ -1,0 +1,52 @@
+Day 1(7/9/26)
+
+Initialize Git: Run git init zero-trust-vision-ai to start version tracking immediately.
+Create Virtual Environment: Run python -m venv env and activate it.
+#A chaotic map is a mathematical function that exhibits highly sensitive dependence on initial conditions—perfect for generating secure, pseudo-random encryption keys.
+Logistic map: Xn+1 = r*Xn(1-Xn)
+
+-------------------------------------------------
+Day 2 (8/9/26)
+Today's goal is to transition from global scrambling to Block-Wise Chaotic Scrambling, the core foundation of learnable image encryption.
+We achieve this by dividing the image into non-overlapping blocks of size $B \times B$ and permuting the blocks rather than individual pixels.
+
+----------------------------------------------------------
+
+Day 3 (9/9/26)
+Defeating the Jigsaw Attack: if an attacker looks closely at the edges of those shuffled blocks, they might reconstruct the image using a jigsaw-puzzle algorithm, matching the continuous lines and pixel gradients from one block to another.
+to solve this: Randomized Rotation: Each block is independently rotated by 0, 90, 180, or 270 degrees.
+
+We randomly invert the pixel intensities of roughly half the blocks using the equation p = 255 - p_old
+
+--------------------------------------
+Day 4 (12/9/26)
+we will apply Information Entropy and Histogram Analysis to validate your cipher's strength.
+Information entropy measures the degree of randomness in a system. For an 8-bit grayscale image (where pixel intensities range from 0 to 255), the ideal theoretical entropy is exactly 8.0. The closer our ciphertext gets to 8.0, the more resistant it is to statistical attacks.
+$$H(m) = -\sum_{i=0}^{255} P(m_i) \log_2 P(m_i)$$
+
+Result of day: Plaintext Entropy: 7.2976
+Ciphertext Entropy: 7.6426  for B=8
+
+--------------------------------------------------------
+
+Day 5(12/9/26)
+
+complete the statistical validation of our learnable cipher. While Information Entropy proved the pixel distribution is random, we must now mathematically prove that the structural geometry is destroyed and that the cipher can survive differential attacks.
+
+In meaningful plain images, adjacent pixels typically have a correlation coefficient very close to 1. An effective encryption system must disrupt this resemblance, bringing the correlation coefficient between adjacent pixels—whether horizontally, vertically, or diagonally—close to 0. This ensures that structural metrics like the Structural Similarity Index (SSIM) also drop to zero, proving no visual geometry leaks through the cipher.
+
+Differential Attack Analysis (NPCR & UACI)
+A differential attack involves an adversary making a tiny, one-bit change to your original image to see how the resulting encrypted image changes. To resist these attacks, your encryption algorithm must be highly sensitive to the plain image. We measure this sensitivity using two standard cryptographic metrics
+
+Result: Plaintext Correlation: 0.9934
+Ciphertext Correlation: 0.9310
+
+-------------------------------------------------------------------
+
+Day 6(12/9/26)
+To satisfy the "Zero-Trust" requirement of Phase 1, the system must ingest live camera feeds directly into RAM and apply the chaotic cipher on-the-fly. The plaintext must never touch the hard drive or be cached. When this backend architecture eventually receives streams from edge devices or web environments like Safari, it must process the visual data with sub-second latency.
+
+First, we must wrap the transformations from Days 2 and 3 into a modular Python class. This ensures the encryption can be instantiated dynamically and applied to continuous video frames.
+
+simply i converted live camera into chaotic pixels. 
+From this day I understood the importance of this project and the objective
