@@ -4,6 +4,7 @@ import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import logs
 
 def generate_chaotic_key(x0, r, size):
     key = np.zeros(size)#array of zeroes

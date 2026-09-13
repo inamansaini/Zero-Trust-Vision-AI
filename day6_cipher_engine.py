@@ -1,5 +1,5 @@
 import numpy as np
-
+import logs
 class LearnableCipherEngine:
     def __init__(self, block_size, r=3.999):
         self.B=block_size

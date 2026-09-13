@@ -3,6 +3,7 @@
 import cv2 
 import numpy as np
 import matplotlib.pyplot as plt
+import logs
 
 def generate_chaotic_key(x0, r, size):
     #function with 3 inputs

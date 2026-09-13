@@ -1,7 +1,7 @@
 import cv2
 import time
 from day6_cipher_engine import LearnableCipherEngine
-
+import logs
 engine = LearnableCipherEngine(block_size=64)
 # Open local camera feed (0 is the default webcam)
 cap = cv2.VideoCapture(0)

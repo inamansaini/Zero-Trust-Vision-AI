@@ -1,5 +1,6 @@
 import numpy as np
 import day3_intra_block
+import logs
 
 def horizontal_correlation(image):
     # Extract adjacent pixel pairs (x and y)

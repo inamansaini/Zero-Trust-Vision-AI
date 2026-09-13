@@ -50,3 +50,8 @@ First, we must wrap the transformations from Days 2 and 3 into a modular Python 
 
 simply i converted live camera into chaotic pixels. 
 From this day I understood the importance of this project and the objective
+
+--------------------------------------------------------
+
+Day 7(13/9/26)
+i added logs file to keep track
